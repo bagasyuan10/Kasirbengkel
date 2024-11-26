@@ -15,7 +15,7 @@ const App = () => {
   ];
 
   // Inisialisasi parts untuk setiap kelas
-  const initialParts = partNames.map((name) => ({ name, quantity: 0 }));
+  const initialParts = partNames.map((name) => ({ name, quantity: "" }));
 
   // Menyimpan state untuk setiap kelas (S, A, B, C, M)
   const [classes, setClasses] = useState({
@@ -47,7 +47,7 @@ const App = () => {
     return Object.keys(classes).reduce((total, className) => {
       const pricePerPart = classes[className].priceOption === "Normal" ? 135 : 120;
       const classTotal = classes[className].parts.reduce(
-        (subTotal, part) => subTotal + part.quantity * pricePerPart,
+        (subTotal, part) => subTotal + (parseInt(part.quantity, 10) || 0) * pricePerPart,
         0
       );
       return total + classTotal;
@@ -58,7 +58,7 @@ const App = () => {
   const calculateTotalParts = () => {
     return Object.keys(classes).reduce((total, className) => {
       const classTotalParts = classes[className].parts.reduce(
-        (subTotal, part) => subTotal + part.quantity,
+        (subTotal, part) => subTotal + (parseInt(part.quantity, 10) || 0),
         0
       );
       return total + classTotalParts;
@@ -99,18 +99,20 @@ const App = () => {
 
     return (
       <div className="part-selector">
-        <h2>Kelas {className} - {classes[className].priceOption} (Harga per part: {pricePerPart})</h2>
+        <h2>
+          Kelas {className} - {classes[className].priceOption} (Harga per part: {pricePerPart})
+        </h2>
         {parts.map((part, index) => (
           <div key={index} className="part-item">
             <label>
-              {part.name}: 
+              {part.name}:
               <input
                 type="number"
                 value={part.quantity}
                 min="0"
                 max="6"
                 onChange={(e) =>
-                  onPartChange(className, index, parseInt(e.target.value, 10) || 0)
+                  onPartChange(className, index, e.target.value === "" ? "" : parseInt(e.target.value, 10))
                 }
               />
             </label>
