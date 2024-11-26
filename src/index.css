@@ -1,0 +1,187 @@
+/* Mengatur background pada body dengan logo.png */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/public/logo.png');
+  background-size: contain;  /* Gambar background lebih kecil agar logo terlihat jelas */
+  background-position: center; /* Menempatkan gambar di tengah */
+  background-repeat: no-repeat; /* Gambar tidak diulang */
+  height: 100vh; /* Agar background memenuhi seluruh tinggi viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black; /* Warna latar belakang hitam untuk keseluruhan body */
+}
+
+/* Styling untuk app */
+.app {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.8); /* Efek transparan dengan latar belakang hitam */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px); /* Efek blur di belakang */
+  animation: fadeIn 0.8s ease-out;
+  transition: margin-top 0.3s ease; /* Tambahkan transisi untuk margin-top */
+}
+
+/* Tambahkan margin-top ketika kelas dipilih */
+.app.class-selected {
+  margin-top: 400px;
+}
+
+h1 {
+  text-align: center;
+  color: #ff4081; /* Warna teks h1 disesuaikan agar kontras dengan latar belakang hitam */
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Class Selection */
+.class-selection {
+  margin-top: 100px; /* Menambahkan margin top untuk jarak yang lebih baik pada halaman awal */
+}
+
+.class-selection h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ff4081; /* Warna teks h2 yang cerah agar terlihat jelas */
+}
+
+.class-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.class-button {
+  background: linear-gradient(90deg, #00bcd4, #00796b);
+  color: white;
+  font-size: 1.4rem;
+  padding: 15px 30px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.class-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.5), 0 0 25px rgba(0, 121, 105, 0.5);
+}
+
+/* Tombol Kembali ke Pilihan Kelas */
+.back-button {
+  background: linear-gradient(90deg, #ff4081, #f50057);
+  color: white;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 64, 129, 0.5), 0 0 30px rgba(245, 0, 87, 0.6);
+}
+
+/* Part Selector */
+.part-selector {
+  background: rgba(0, 0, 0, 0.7); /* Darker background untuk efek misterius */
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.part-selector h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #00bcd4;
+  text-align: center;
+}
+
+.part-item {
+  margin: 15px 0;
+}
+
+.part-item label {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Responsive Input */
+input[type="number"] {
+  width: 100%;
+  max-width: 130px;
+  padding: 15px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 12px;
+  text-align: center;
+  background: #34495e;
+  color: #fff;
+  box-shadow: inset 0 0 15px rgba(0, 188, 212, 0.4);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+input[type="number"]:focus {
+  transform: scale(1.05);
+  box-shadow: inset 0 0 20px rgba(0, 188, 212, 0.6), 0 0 15px rgba(0, 121, 105, 0.4);
+}
+
+/* Summary */
+.summary {
+  background: rgba(0, 0, 0, 0.7); /* Background dark */
+  padding: 20px;
+  border-radius: 16px;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.summary h3 {
+  font-size: 2rem;
+  color: #ff4081;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.summary p {
+  font-size: 1.5rem;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 20px;
+  }
+
+  .class-buttons {
+    flex-direction: column;
+  }
+
+  .class-button {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .back-button {
+    width: 100%;
+  }
+}

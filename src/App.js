@@ -62,9 +62,9 @@ const App = () => {
   };
 
   return (
-    <div className="app">
+    <div className={`app ${activeClass ? "class-selected" : ""}`}>
       <h1>Sistem Kasir Bengkel</h1>
-      
+
       {/* Pilihan Kelas */}
       {activeClass === null && (
         <div className="class-selection">
