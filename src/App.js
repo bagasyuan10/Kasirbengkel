@@ -22,6 +22,7 @@ const App = () => {
     S: [...initialParts],
     A: [...initialParts],
     B: [...initialParts],
+    C: [...initialParts], // Kelas C ditambahkan
     M: [...initialParts],
   });
 
@@ -57,6 +58,7 @@ const App = () => {
       S: [...initialParts],
       A: [...initialParts],
       B: [...initialParts],
+      C: [...initialParts], // Reset kelas C
       M: [...initialParts],
     });
   };
@@ -70,7 +72,7 @@ const App = () => {
         <div className="class-selection">
           <h2>Pilih Kelas</h2>
           <div className="class-buttons">
-            {["S", "A", "B", "M"].map((className) => (
+            {["S", "A", "B", "C", "M"].map((className) => ( // Tambahkan kelas C di sini
               <button
                 key={className}
                 className="class-button"
